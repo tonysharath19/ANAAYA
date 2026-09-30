@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <link rel="icon" type="image/jpeg" href="images/logo.jpg">
+  <link rel="shortcut icon" type="image/jpeg" href="images/logo.jpg">
   <meta name="description"
     content="DASHA — Premium artificial and fashion jewellery storefront. Statement earrings, chokers, cocktail rings, cuffs and festive edits. Thoughtfully designed artificial jewellery.">
   <title>ANAAYA-Modern Indian Fashion Jewellery</title>
@@ -104,6 +106,66 @@
 
     #site-footer,
     footer.footer { min-height: 100svh; height: 100svh; max-height: 100svh; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding-top: clamp(24px, 4vh, 48px); padding-bottom: clamp(16px, 3vh, 32px); }
+  }
+
+  /* ===== SLEEK LUXURY GOLDEN DUST DESKTOP SCROLLBAR ===== */
+  @media (min-width: 992px) {
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: #D4AF37 #0A0907;
+    }
+
+    ::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background-color: #0A0907;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='70' viewBox='0 0 12 70'%3E%3Crect width='12' height='70' fill='%230A0907'/%3E%3Ccircle cx='6' cy='8' r='1.2' fill='%23FFE27A' opacity='0.95'/%3E%3Ccircle cx='6' cy='8' r='2.8' fill='%23D4AF37' opacity='0.35'/%3E%3Ccircle cx='2.5' cy='18' r='0.8' fill='%23FFDF70' opacity='0.85'/%3E%3Ccircle cx='9.5' cy='24' r='1.4' fill='%23FFF2A8' opacity='0.95'/%3E%3Ccircle cx='9.5' cy='24' r='2.6' fill='%23E5BE42' opacity='0.3'/%3E%3Cpolygon points='6,33 6.8,34.8 8.8,35.5 6.8,36.2 6,38 5.2,36.2 3.2,35.5 5.2,34.8' fill='%23FFF8D0' opacity='0.98'/%3E%3Ccircle cx='6' cy='35.5' r='2.2' fill='%23FFD700' opacity='0.4'/%3E%3Ccircle cx='3' cy='46' r='1.3' fill='%23FFD700' opacity='0.9'/%3E%3Ccircle cx='3' cy='46' r='2.4' fill='%23D4AF37' opacity='0.3'/%3E%3Ccircle cx='8.5' cy='54' r='0.9' fill='%23FFE894' opacity='0.85'/%3E%3Ccircle cx='5.5' cy='63' r='1.5' fill='%23FFE066' opacity='0.95'/%3E%3Ccircle cx='5.5' cy='63' r='3.0' fill='%23C89924' opacity='0.35'/%3E%3C/svg%3E");
+      background-repeat: repeat-y;
+      background-position: center top;
+      background-size: 12px 70px;
+      box-shadow: inset 1px 0 0 rgba(212, 175, 55, 0.2);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: linear-gradient(180deg, #FFE896 0%, #E6C254 22%, #D4AF37 50%, #B3861B 78%, #F5D77F 100%);
+      border-radius: 100px;
+      border: 1.5px solid rgba(255, 245, 190, 0.45);
+      box-shadow: 0 0 8px rgba(212, 175, 55, 0.5), inset 0 1px 1px rgba(255, 255, 255, 0.6);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(180deg, #FFF3BD 0%, #F5D268 22%, #E5BE42 50%, #C89924 78%, #FFE896 100%);
+      box-shadow: 0 0 14px rgba(255, 215, 0, 0.8), inset 0 1px 2px rgba(255, 255, 255, 0.8);
+      border-color: rgba(255, 255, 255, 0.7);
+    }
+
+    ::-webkit-scrollbar-thumb:active {
+      background: linear-gradient(180deg, #D4AF37 0%, #AA7C11 50%, #D4AF37 100%);
+    }
+
+    ::-webkit-scrollbar-button {
+      display: block;
+      height: 12px;
+      background-color: #0A0907;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 8px 8px;
+    }
+
+    ::-webkit-scrollbar-button:single-button:vertical:decrement {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpolygon points='5,2 8.5,7 1.5,7' fill='%23D4AF37'/%3E%3C/svg%3E");
+    }
+
+    ::-webkit-scrollbar-button:single-button:vertical:increment {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Cpolygon points='5,8 1.5,3 8.5,3' fill='%23D4AF37'/%3E%3C/svg%3E");
+    }
+
+    ::-webkit-scrollbar-corner {
+      background: #0A0907;
+    }
   }
 
   *,
