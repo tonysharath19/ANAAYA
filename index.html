@@ -9,10 +9,14 @@
   <title>ANAAYA-Modern Indian Fashion Jewellery</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Parisienne&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Parisienne&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700&display=swap" media="print" onload="this.media='all'">
+  <link rel="preload" as="style"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Parisienne&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700&display=swap">
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Parisienne&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700&display=swap"
+    media="print" onload="this.media='all'">
   <noscript>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Parisienne&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700&display=swap">
+    <link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Great+Vibes&family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Parisienne&family=Playfair+Display:ital,wght@0,500;0,600;0,700;0,800;0,900;1,500;1,600;1,700&display=swap">
   </noscript>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
@@ -87,7 +91,15 @@
       --plum: #D31238;
     }
 
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
     html {
+      margin: 0;
+      padding: 0;
       scroll-behavior: smooth;
       scroll-snap-type: y mandatory;
       font-size: 16px;
@@ -131,6 +143,8 @@
     }
 
     body {
+      margin: 0;
+      padding: 0;
       font-family: var(--font-sans);
       background: var(--bg);
       color: var(--text-primary);
@@ -3781,6 +3795,25 @@
       color: var(--text-primary);
       line-height: 1.1;
       margin-bottom: 2px;
+    }
+
+    .desktop-lookbook-title {
+      display: block;
+    }
+
+    .mobile-lookbook-title {
+      display: none;
+    }
+
+    .lookbook-title-subline {
+      display: inline-block;
+      line-height: 1.05;
+    }
+
+    .title-spacer {
+      visibility: hidden;
+      user-select: none;
+      pointer-events: none;
     }
 
     .lookbook-season {
@@ -8226,14 +8259,16 @@
       }
 
       #shop-by-mood .mood-bento-title {
-        font-size: clamp(25px, 1.85vw, 34px) !important;
-        margin-bottom: 7px;
+        font-size: clamp(16px, 1.2vw, 21px) !important;
+        margin-bottom: 2px !important;
+        line-height: 1.2 !important;
       }
 
       #shop-by-mood .mood-bento-sub {
-        font-size: clamp(11px, 0.8vw, 14px) !important;
-        line-height: 1.45;
-        margin-bottom: 10px;
+        font-size: clamp(8.5px, 0.65vw, 10.5px) !important;
+        line-height: 1.3 !important;
+        letter-spacing: 0.12em !important;
+        margin-bottom: 8px !important;
       }
 
       #shop-by-mood .mood-bento-desc {
@@ -8242,13 +8277,13 @@
         overflow: visible;
         -webkit-line-clamp: unset;
         line-clamp: unset;
-        font-size: clamp(13px, 0.94vw, 16px) !important;
-        line-height: 1.45;
+        font-size: clamp(11px, 0.8vw, 13px) !important;
+        line-height: 1.4;
       }
 
       #shop-by-mood .mood-bento-btn {
         align-self: flex-start;
-        padding: 10px 18px;
+        padding: 5px 13px !important;
       }
     }
 
@@ -9039,40 +9074,188 @@
     }
 
     @media (min-width: 861px) {
-      #new-arrivals .lookbook-container {
-        padding-top: clamp(8px, 1.15vh, 14px);
-      }
-
-      #new-arrivals .lookbook-title {
-        font-size: clamp(48px, 4.45vw, 74px);
-        line-height: .95;
-        letter-spacing: -.04em;
-      }
-
-      #new-arrivals .lookbook-season {
-        font-size: 11px;
-        font-weight: 700;
-        letter-spacing: .22em;
-      }
-    }
-
-    /* New Arrivals: Luxury 3D Coverflow Mobile Showcase - Header at Top, Diagonally Opposite Ribbons, Dropdown Only */
-    @media (max-width: 860px) {
       #new-arrivals.lookbook-section {
         min-height: 100svh !important;
-        min-height: 100dvh !important;
         height: 100svh !important;
-        height: 100dvh !important;
         max-height: 100svh !important;
-        max-height: 100dvh !important;
+        padding-top: clamp(13px, 1.5vh, 18px) !important;
+        padding-bottom: 0 !important;
+        position: relative !important;
         overflow: hidden !important;
-        box-sizing: border-box !important;
-        padding-top: clamp(16px, 2.5vh, 22px) !important;
-        padding-bottom: clamp(10px, 1.5vh, 16px) !important;
-        padding-inline: clamp(10px, 3vw, 16px) !important;
+      }
+
+      #new-arrivals .lookbook-container {
+        width: min(100%, 1760px) !important;
+        height: 100% !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: flex-start !important;
+        align-items: stretch !important;
+        padding: 0 clamp(28px, 3.2vw, 60px) !important;
+        gap: 0 !important;
+        position: relative !important;
+        z-index: 10 !important;
+      }
+
+      /* 1. Headings on Left */
+      #new-arrivals .lookbook-header-row {
+        flex: 0 0 auto !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+        text-align: left !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        position: relative !important;
+        z-index: 20 !important;
+      }
+
+      #new-arrivals .lookbook-header-left {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        text-align: left !important;
+        width: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      #new-arrivals .lookbook-title {
+        font-family: var(--font-serif) !important;
+        font-size: clamp(50px, min(4vw, 5.8vh), 56px) !important;
+        line-height: 0.82 !important;
+        letter-spacing: -0.025em !important;
+        color: var(--text-primary, #111111) !important;
+        text-align: left !important;
+        margin: 0 0 3px 0 !important;
+      }
+
+      .desktop-lookbook-title {
+        display: block !important;
+        text-align: left !important;
+      }
+
+      .mobile-lookbook-title {
+        display: none !important;
+      }
+
+      .lookbook-title-subline {
+        display: inline-block !important;
+        line-height: 0.82 !important;
+        margin-left: clamp(10px, 0.8vw, 16px) !important;
+      }
+
+      .title-spacer {
+        display: none !important;
+        visibility: hidden !important;
+        width: 0 !important;
+        height: 0 !important;
+        margin: 0 !important;
+        padding: 0 !important;
+      }
+
+      #new-arrivals .lookbook-season {
+        font-family: var(--font-sans) !important;
+        font-size: clamp(12px, 1vw, 14.5px) !important;
+        font-weight: 700 !important;
+        letter-spacing: 0.22em !important;
+        text-transform: uppercase !important;
+        color: var(--text-secondary, #7A6560) !important;
+        text-align: left !important;
+        margin-top: 2px !important;
+        line-height: 1.15 !important;
+      }
+
+      /* Remove product category nav buttons and dropdown on desktop */
+      #new-arrivals .filter-tabs,
+      #newArrivalsTabs,
+      #new-arrivals .new-arrivals-select-wrap,
+      #newArrivalsSelectWrap {
+        display: none !important;
+        visibility: hidden !important;
+      }
+
+      /* 2. Top Ribbon: Cleanly below the left heading and above the carousel */
+      #new-arrivals .ribbon-tape-1 {
+        top: clamp(118px, 14.8vh, 142px) !important;
+        bottom: auto !important;
+        transform: rotate(-1.2deg) !important;
+        padding: 7px 0 !important;
+        background: #752E3C !important;
+        border-top: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+        border-bottom: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+        z-index: 1 !important;
+      }
+
+      /* 3. Carousels: Below the top ribbon */
+      #new-arrivals .carousel-3d-wrapper {
+        flex: 0 0 auto !important;
+        margin-top: clamp(80px, 10.5vh, 104px) !important;
+        margin-bottom: 0 !important;
+        position: relative !important;
+        z-index: 5 !important;
+      }
+
+      #new-arrivals .carousel-3d-stage {
+        height: clamp(310px, 39svh, 370px) !important;
+      }
+
+      #new-arrivals .lookbook-item {
+        width: clamp(230px, 19vw, 280px) !important;
+        height: clamp(300px, 37svh, 360px) !important;
+      }
+
+      /* 4. Nav Dots: Sits below the carousel, moved a bit below */
+      #new-arrivals .carousel-3d-dots {
+        position: relative !important;
+        margin-top: clamp(30px, 2.5vh, 28px) !important;
+        margin-bottom: clamp(16px, 2.2vh, 28px) !important;
+        z-index: 15 !important;
+      }
+
+      /* 5. Lower Ribbon: Cleanly at bottom edge below the nav dots */
+      #new-arrivals .ribbon-tape-2 {
+        top: auto !important;
+        bottom: clamp(4px, 0.8vh, 12px) !important;
+        transform: rotate(1.2deg) !important;
+        padding: 7px 0 !important;
+        background: #61222E !important;
+        border-top: 1.5px solid rgba(255, 255, 255, 0.2) !important;
+        border-bottom: 1.5px solid rgba(255, 255, 255, 0.2) !important;
+        z-index: 1 !important;
+      }
+    }
+
+    /* New Arrivals: Luxury 3D Coverflow Mobile Showcase - Same Size as Hero Section (100dvh Viewport Fit), Solid Alive Touch Gradient, No Collisions */
+    @media (max-width: 860px) {
+      #new-arrivals.lookbook-section {
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
+        height: 100vh !important;
+        height: 100dvh !important;
+        max-height: 100vh !important;
+        max-height: 100dvh !important;
+        overflow: hidden !important;
+        box-sizing: border-box !important;
+        padding-top: clamp(14px, 2.2vh, 22px) !important;
+        padding-bottom: clamp(12px, 1.8vh, 18px) !important;
+        padding-inline: clamp(10px, 3vw, 16px) !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+        align-items: center !important;
+        position: relative !important;
+        --bg-grad-x: 50%;
+        --bg-grad-y: 45%;
+        background: radial-gradient(circle 420px at var(--bg-grad-x, 50%) var(--bg-grad-y, 45%), #FFF9F8 0%, #FDEFEA 30%, #F9D8DE 65%, #ECC5CC 100%) !important;
+        transition: background 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+      }
+
+      [data-theme="dark"] #new-arrivals.lookbook-section,
+      html[data-theme="dark"] #new-arrivals.lookbook-section {
+        background: radial-gradient(circle 420px at var(--bg-grad-x, 50%) var(--bg-grad-y, 45%), #32151B 0%, #220C12 32%, #170609 68%, #0E0305 100%) !important;
       }
 
       #new-arrivals .lookbook-container,
@@ -9082,7 +9265,7 @@
         min-height: 0 !important;
         display: flex !important;
         flex-direction: column !important;
-        justify-content: flex-start !important;
+        justify-content: center !important;
         align-items: center !important;
         gap: 0 !important;
         overflow: hidden !important;
@@ -9091,11 +9274,12 @@
         width: 100% !important;
         max-width: 100% !important;
         box-sizing: border-box !important;
-        flex: 1 1 0 !important;
+        flex: 1 1 auto !important;
         position: relative !important;
+        z-index: 5 !important;
       }
 
-      /* 1. Top Middle with Top Spacing Text */
+      /* 1. Header Row - Fully Uncropped with Perfect Headroom */
       #new-arrivals .lookbook-header-row {
         flex: 0 0 auto !important;
         display: flex !important;
@@ -9103,9 +9287,9 @@
         align-items: center !important;
         text-align: center !important;
         width: 100% !important;
-        gap: 1px !important;
-        margin-top: clamp(2px, 0.4vh, 6px) !important;
-        margin-bottom: clamp(2px, 0.4vh, 6px) !important;
+        gap: 0 !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
         padding: 0 !important;
         position: relative !important;
         z-index: 25 !important;
@@ -9117,8 +9301,8 @@
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
-        margin-top: clamp(8px, 1.4vh, 14px) !important;
-        margin-bottom: 2px !important;
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
       }
 
       #new-arrivals .section-label {
@@ -9127,12 +9311,21 @@
 
       #new-arrivals .lookbook-title {
         font-family: var(--font-serif) !important;
-        font-size: clamp(24px, 6.2vw, 30px) !important;
-        line-height: 1.08 !important;
+        font-size: clamp(26px, 7.2vw, 34px) !important;
+        line-height: 1.15 !important;
         letter-spacing: -0.02em !important;
         margin: 0 !important;
+        padding: 0 !important;
         color: #2A1613 !important;
         text-align: center !important;
+      }
+
+      .desktop-lookbook-title {
+        display: none !important;
+      }
+
+      .mobile-lookbook-title {
+        display: inline-block !important;
       }
 
       [data-theme="dark"] #new-arrivals .lookbook-title {
@@ -9146,12 +9339,12 @@
 
       #new-arrivals .lookbook-season {
         font-family: var(--font-sans) !important;
-        font-size: clamp(8.5px, 2.2vw, 10px) !important;
+        font-size: clamp(9px, 2.3vw, 10.5px) !important;
         font-weight: 700 !important;
-        letter-spacing: 0.16em !important;
+        letter-spacing: 0.18em !important;
         text-transform: uppercase !important;
         color: #7A6560 !important;
-        margin-top: 1px !important;
+        margin-top: 4px !important;
         text-align: center !important;
       }
 
@@ -9159,10 +9352,12 @@
         color: #C0AAA5 !important;
       }
 
-      /* 2. REMOVE PILL CATEGORIES - KEEP ONLY THE DROPDOWN */
+      /* 2. REMOVE CATEGORIES DROPDOWN & TABS COMPLETELY ON MOBILE */
       #new-arrivals .filter-tabs,
       #newArrivalsTabs,
-      .lookbook-header-row .filter-tabs {
+      .lookbook-header-row .filter-tabs,
+      #new-arrivals .new-arrivals-select-wrap,
+      #newArrivalsSelectWrap {
         display: none !important;
         visibility: hidden !important;
         height: 0 !important;
@@ -9173,213 +9368,20 @@
         pointer-events: none !important;
       }
 
-      /* Bespoke Luxury Dropdown for Mobile */
-      .new-arrivals-select-wrap {
-        display: flex !important;
-        justify-content: center !important;
-        align-items: center !important;
-        width: 100% !important;
-        margin-top: clamp(4px, 0.8vh, 8px) !important;
-        margin-bottom: clamp(6px, 1vh, 10px) !important;
-        position: relative !important;
-        z-index: 35 !important;
-      }
-
-      .luxury-dropdown-container {
-        position: relative !important;
-        display: inline-block !important;
-        width: auto !important;
-      }
-
-      .luxury-dropdown-trigger {
-        display: inline-flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        gap: 9px !important;
-        padding: 7px 18px !important;
-        border-radius: 999px !important;
-        background: rgba(255, 255, 255, 0.94) !important;
-        backdrop-filter: blur(12px) !important;
-        -webkit-backdrop-filter: blur(12px) !important;
-        border: 1.2px solid rgba(211, 18, 56, 0.3) !important;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(211, 18, 56, 0.12) !important;
-        color: #1A1311 !important;
-        cursor: pointer !important;
-        outline: none !important;
-        transition: all 0.25s var(--ease-out, ease) !important;
-        user-select: none !important;
-        -webkit-tap-highlight-color: transparent !important;
-      }
-
-      .luxury-dropdown-trigger:active,
-      .luxury-dropdown-trigger[aria-expanded="true"] {
-        border-color: #D31238 !important;
-        box-shadow: 0 6px 20px rgba(211, 18, 56, 0.25) !important;
-        transform: scale(0.98) !important;
-      }
-
-      [data-theme="dark"] .luxury-dropdown-trigger {
-        background: rgba(26, 20, 19, 0.94) !important;
-        border-color: rgba(211, 18, 56, 0.45) !important;
-        color: #FFFFFF !important;
-        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5) !important;
-      }
-
-      .luxury-dropdown-dot {
-        width: 5px !important;
-        height: 5px !important;
-        border-radius: 50% !important;
-        background: #D31238 !important;
-        box-shadow: 0 0 6px #D31238 !important;
-        flex-shrink: 0 !important;
-      }
-
-      .luxury-dropdown-current {
-        font-family: var(--font-sans) !important;
-        font-size: 11px !important;
-        font-weight: 700 !important;
-        letter-spacing: 0.12em !important;
-        text-transform: uppercase !important;
-        color: inherit !important;
-        white-space: nowrap !important;
-      }
-
-      .luxury-dropdown-chevron {
-        stroke: currentColor !important;
-        transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
-        flex-shrink: 0 !important;
-      }
-
-      .luxury-dropdown-trigger[aria-expanded="true"] .luxury-dropdown-chevron {
-        transform: rotate(180deg) !important;
-      }
-
-      /* Dropdown Menu Popup List */
-      .luxury-dropdown-menu {
-        position: absolute !important;
-        top: calc(100% + 8px) !important;
-        left: 50% !important;
-        transform: translateX(-50%) translateY(-6px) scale(0.96) !important;
-        transform-origin: top center !important;
-        width: clamp(190px, 60vw, 230px) !important;
-        background: rgba(255, 255, 255, 0.97) !important;
-        backdrop-filter: blur(20px) !important;
-        -webkit-backdrop-filter: blur(20px) !important;
-        border: 1.2px solid rgba(211, 18, 56, 0.22) !important;
-        border-radius: 16px !important;
-        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.16), 0 4px 12px rgba(211, 18, 56, 0.08) !important;
-        padding: 6px !important;
-        margin: 0 !important;
-        list-style: none !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-        visibility: hidden !important;
-        transition: opacity 0.2s ease, transform 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), visibility 0.2s !important;
-        z-index: 50 !important;
-      }
-
-      .luxury-dropdown-menu.is-open {
-        opacity: 1 !important;
-        pointer-events: auto !important;
-        visibility: visible !important;
-        transform: translateX(-50%) translateY(0) scale(1) !important;
-      }
-
-      [data-theme="dark"] .luxury-dropdown-menu {
-        background: rgba(24, 18, 17, 0.97) !important;
-        border-color: rgba(211, 18, 56, 0.35) !important;
-        box-shadow: 0 18px 42px rgba(0, 0, 0, 0.65) !important;
-      }
-
-      .luxury-dropdown-item {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        padding: 9px 14px !important;
-        border-radius: 10px !important;
-        font-family: var(--font-sans) !important;
-        font-size: 11px !important;
-        font-weight: 600 !important;
-        letter-spacing: 0.08em !important;
-        text-transform: uppercase !important;
-        color: #2A1815 !important;
-        cursor: pointer !important;
-        transition: all 0.18s ease !important;
-        -webkit-tap-highlight-color: transparent !important;
-      }
-
-      [data-theme="dark"] .luxury-dropdown-item {
-        color: #EAE0DD !important;
-      }
-
-      .luxury-dropdown-item:active,
-      .luxury-dropdown-item:hover {
-        background: rgba(211, 18, 56, 0.08) !important;
-        color: #D31238 !important;
-      }
-
-      [data-theme="dark"] .luxury-dropdown-item:active,
-      [data-theme="dark"] .luxury-dropdown-item:hover {
-        background: rgba(211, 18, 56, 0.22) !important;
-        color: #FF5A78 !important;
-      }
-
-      .luxury-dropdown-item.active {
-        background: rgba(211, 18, 56, 0.12) !important;
-        color: #D31238 !important;
-        font-weight: 700 !important;
-      }
-
-      [data-theme="dark"] .luxury-dropdown-item.active {
-        background: rgba(211, 18, 56, 0.26) !important;
-        color: #FF5A78 !important;
-      }
-
-      .luxury-dropdown-item .item-check {
-        opacity: 0 !important;
-        transform: scale(0.6) !important;
-        color: #D31238 !important;
-        font-size: 12px !important;
-        font-weight: 800 !important;
-        transition: all 0.18s ease !important;
-      }
-
-      [data-theme="dark"] .luxury-dropdown-item .item-check {
-        color: #FF5A78 !important;
-      }
-
-      .luxury-dropdown-item.active .item-check {
-        opacity: 1 !important;
-        transform: scale(1) !important;
-      }
-
-      .sr-only-select {
-        position: absolute !important;
-        width: 1px !important;
-        height: 1px !important;
-        padding: 0 !important;
-        margin: -1px !important;
-        overflow: hidden !important;
-        clip: rect(0, 0, 0, 0) !important;
-        white-space: nowrap !important;
-        border: 0 !important;
-        opacity: 0 !important;
-        pointer-events: none !important;
-      }
-
-      /* 3D Carousel Stage & Wrapper - Longer Card with clear spacing below Ribbon 1 */
+      /* 3D Carousel Stage & Wrapper */
       #new-arrivals .carousel-3d-wrapper {
         flex: 0 0 auto !important;
         min-height: 0 !important;
-        height: clamp(345px, 47svh, 395px) !important;
+        height: clamp(320px, 47vh, 395px) !important;
         width: 100% !important;
-        margin-top: clamp(74px, 11vh, 96px) !important;
+        margin-top: clamp(8px, 1.4vh, 14px) !important;
         margin-bottom: 0 !important;
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         position: relative !important;
         overflow: visible !important;
+        z-index: 5 !important;
       }
 
       #new-arrivals .carousel-3d-stage {
@@ -9394,6 +9396,7 @@
         justify-content: center !important;
         position: relative !important;
         overflow: visible !important;
+        touch-action: pan-y !important;
       }
 
       #new-arrivals .lookbook-grid.carousel-3d-track {
@@ -9407,26 +9410,26 @@
         margin: 0 !important;
       }
 
-      /* Card Size: Clean 3D Card */
+      /* Proportional Mobile 3D Card */
       #new-arrivals .lookbook-item {
         position: absolute !important;
         top: 50% !important;
         left: 50% !important;
-        width: clamp(230px, 66vw, 275px) !important;
+        width: clamp(240px, 68vw, 285px) !important;
         height: 100% !important;
-        min-height: 275px !important;
+        min-height: 0 !important;
         max-height: 100% !important;
-        border-radius: 16px !important;
+        border-radius: 18px !important;
         overflow: hidden !important;
-        border: 1px solid rgba(255, 255, 255, 0.3) !important;
-        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.24) !important;
+        border: 1px solid rgba(255, 255, 255, 0.35) !important;
+        box-shadow: 0 16px 42px rgba(0, 0, 0, 0.32) !important;
         background: #141110 !important;
         margin: 0 !important;
         will-change: transform, opacity !important;
       }
 
       #new-arrivals .lookbook-item.is-center {
-        box-shadow: 0 22px 50px rgba(0, 0, 0, 0.38), 0 0 0 2px rgba(211, 18, 56, 0.5) !important;
+        box-shadow: 0 24px 54px rgba(0, 0, 0, 0.45), 0 0 0 2px rgba(211, 18, 56, 0.5) !important;
       }
 
       #new-arrivals .lookbook-media {
@@ -9484,7 +9487,7 @@
         display: none !important;
       }
 
-      /* Minimalist Card Caption - Ample room for full title display */
+      /* Minimalist Card Caption */
       #new-arrivals .lookbook-caption {
         position: absolute !important;
         bottom: 0 !important;
@@ -9505,19 +9508,15 @@
       }
 
       #new-arrivals .lookbook-item-num {
-        font-size: 8.5px !important;
-        font-weight: 700 !important;
-        letter-spacing: 0.12em !important;
-        color: rgba(255, 255, 255, 0.75) !important;
-        margin-bottom: 2px !important;
+        display: none !important;
       }
 
       #new-arrivals .lookbook-item-title {
         font-family: var(--font-serif) !important;
-        font-size: clamp(12.5px, 3.4vw, 15px) !important;
+        font-size: clamp(12.5px, 3.5vw, 15px) !important;
         font-weight: 600 !important;
         color: #FFFFFF !important;
-        line-height: 1.25 !important;
+        line-height: 1.22 !important;
         margin: 0 0 2px 0 !important;
         text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85) !important;
         white-space: normal !important;
@@ -9527,7 +9526,7 @@
       }
 
       #new-arrivals .lookbook-item-price {
-        font-size: 13.5px !important;
+        font-size: 14px !important;
         font-weight: 800 !important;
         color: #FFFFFF !important;
         margin-top: 2px !important;
@@ -9582,7 +9581,7 @@
         right: 2px !important;
       }
 
-      /* Pagination Dots - Positioned naturally below the carousel with clean spacing */
+      /* Pagination Dots - Positioned JUST BELOW the carousel */
       #new-arrivals .carousel-3d-dots {
         position: relative !important;
         left: auto !important;
@@ -9590,9 +9589,9 @@
         top: auto !important;
         bottom: auto !important;
         flex: 0 0 auto !important;
-        margin-top: clamp(12px, 1.8vh, 16px) !important;
+        margin-top: clamp(8px, 1.4vh, 14px) !important;
         margin-bottom: 0 !important;
-        gap: 7px !important;
+        gap: 8px !important;
         display: flex !important;
         justify-content: center !important;
         align-items: center !important;
@@ -9612,44 +9611,52 @@
       }
 
       #new-arrivals .carousel-3d-dot.active {
-        width: 22px !important;
+        width: 24px !important;
         border-radius: 999px !important;
         background: #D31238 !important;
+        box-shadow: 0 2px 8px rgba(211, 18, 56, 0.5) !important;
       }
 
-      /* 3. RIBBONS: DIAGONALLY OPPOSITE */
-      /* Ribbon 1: Completely in open space between dropdown text and carousel */
+      /* 3. RIBBONS: DIAGONALLY FRAMING SECTION ACCORDINGLY */
+      /* Ribbon 1: Floating across the upper background behind header */
       #new-arrivals .ribbon-tape-1 {
-        top: 20.5% !important;
+        top: clamp(75px, 11vh, 96px) !important;
         bottom: auto !important;
-        transform: rotate(-3.5deg) !important;
-        padding: 7px 0 !important;
-        font-size: 10.5px !important;
+        transform: rotate(-3deg) !important;
+        padding: 5px 0 !important;
+        background: #752E3C !important;
+        font-size: 8.5px !important;
+        letter-spacing: 0.14em !important;
         z-index: 1 !important;
+        opacity: 0.85 !important;
+        pointer-events: none !important;
       }
 
-      /* Ribbon 2: Completely in open space below nav dots with clean spacing */
+      /* Ribbon 2: Positioned at the bottom edge of the section */
       #new-arrivals .ribbon-tape-2 {
-        top: 79% !important;
-        bottom: auto !important;
-        transform: rotate(2.8deg) !important;
-        padding: 7px 0 !important;
-        font-size: 10.5px !important;
+        top: auto !important;
+        bottom: clamp(26px, 4vh, 38px) !important;
+        transform: rotate(2.2deg) !important;
+        padding: 5px 0 !important;
+        background: #61222E !important;
+        font-size: 8.5px !important;
+        letter-spacing: 0.14em !important;
         z-index: 1 !important;
+        opacity: 0.85 !important;
+        pointer-events: none !important;
       }
 
       #new-arrivals .ribbon-text {
-        font-size: 11px !important;
-        gap: 18px !important;
-        padding-right: 18px !important;
+        font-size: 9.5px !important;
+        gap: 14px !important;
+        padding-right: 14px !important;
       }
 
       /* Instant Popup: NO enter animation on mobile */
       #new-arrivals .reveal,
       #new-arrivals .lookbook-header-left *,
       #new-arrivals .lookbook-title,
-      #new-arrivals .lookbook-season,
-      #new-arrivals .new-arrivals-select-wrap {
+      #new-arrivals .lookbook-season {
         opacity: 1 !important;
         transform: none !important;
         animation: none !important;
@@ -11067,8 +11074,9 @@
       }
 
       #new-arrivals .lookbook-item {
-        width: clamp(230px, 70vw, 280px) !important;
-        height: clamp(330px, 46svh, 380px) !important;
+        width: clamp(260px, 74vw, 305px) !important;
+        height: 100% !important;
+        min-height: 335px !important;
       }
     }
 
@@ -11542,6 +11550,8 @@
     /* ===== DYNAMIC FLUID RESPONSIVENESS (PREVENTS ANY CUTTING WHEN BROWSER RESIZES) ===== */
     html,
     body {
+      margin: 0 !important;
+      padding: 0 !important;
       max-width: 100% !important;
       overflow-x: hidden !important;
     }
@@ -15526,48 +15536,120 @@
       }
     }
 
-    /* ===== SHOP BY MOOD ARROW BUTTONS: LIGHT & DARK THEMES ===== */
-    #shop-by-mood .mood-bento-btn,
-    #shop-by-mood .mood-explore-btn {
-      background: #FFFFFF !important;
-      border: 1.5px solid #000000 !important;
-      color: #D31238 !important;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12) !important;
+    /* ===== SHOP BY MOOD ARROW BUTTONS: MINIMALIST LUXURY ===== */
+    #shop-by-mood .mood-bento-btn {
+      background: rgba(255, 255, 255, 0.94) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      border: 1px solid rgba(0, 0, 0, 0.15) !important;
+      color: #A80D2B !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08) !important;
       transition: all 0.25s ease !important;
+      padding: 5px 13px !important;
+      font-size: 9.5px !important;
+      letter-spacing: 0.12em !important;
+      font-weight: 600 !important;
+      border-radius: 999px !important;
+      gap: 5px !important;
     }
 
-    #shop-by-mood .mood-bento-btn svg,
-    #shop-by-mood .mood-explore-btn svg,
-    #shop-by-mood .mood-bento-btn svg *,
-    #shop-by-mood .mood-explore-btn svg * {
+    #shop-by-mood .mood-bento-btn:hover {
+      background: #FFFFFF !important;
+      border-color: #D31238 !important;
+      color: #D31238 !important;
+      box-shadow: 0 4px 12px rgba(211, 18, 56, 0.2) !important;
+      transform: translateY(-1px) !important;
+    }
+
+    #shop-by-mood .mood-bento-btn svg {
+      width: 10px !important;
+      height: 10px !important;
+      stroke-width: 2 !important;
+      stroke: #A80D2B !important;
+      color: #A80D2B !important;
+      transition: transform 0.25s ease !important;
+    }
+
+    #shop-by-mood .mood-bento-btn:hover svg {
       stroke: #D31238 !important;
       color: #D31238 !important;
+      transform: translateX(2px) !important;
     }
 
-    #shop-by-mood .mood-bento-btn span,
-    #shop-by-mood .mood-explore-btn span {
+    #shop-by-mood .mood-bento-btn span {
+      color: inherit !important;
+      font-weight: 600 !important;
+      font-size: 9.5px !important;
+      letter-spacing: 0.12em !important;
+    }
+
+    #shop-by-mood .mood-explore-btn {
+      background: rgba(255, 255, 255, 0.95) !important;
+      border: 1px solid rgba(0, 0, 0, 0.16) !important;
+      color: #A80D2B !important;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06) !important;
+      transition: all 0.25s ease !important;
+      padding: 6px 14px !important;
+      font-size: 10px !important;
+      font-weight: 600 !important;
+      letter-spacing: 0.1em !important;
+      border-radius: 999px !important;
+      gap: 6px !important;
+    }
+
+    #shop-by-mood .mood-explore-btn:hover {
+      background: #FFFFFF !important;
+      border-color: #D31238 !important;
       color: #D31238 !important;
-      font-weight: 700 !important;
+      box-shadow: 0 4px 12px rgba(211, 18, 56, 0.18) !important;
+      transform: translateY(-1px) !important;
+    }
+
+    #shop-by-mood .mood-explore-btn svg {
+      width: 11px !important;
+      height: 11px !important;
+      stroke-width: 2 !important;
+      stroke: #A80D2B !important;
+      color: #A80D2B !important;
+      transition: transform 0.25s ease !important;
+    }
+
+    #shop-by-mood .mood-explore-btn:hover svg {
+      stroke: #D31238 !important;
+      color: #D31238 !important;
+      transform: translateX(2px) !important;
+    }
+
+    #shop-by-mood .mood-explore-btn span {
+      color: inherit !important;
+      font-weight: 600 !important;
+      font-size: 10px !important;
     }
 
     [data-theme="dark"] #shop-by-mood .mood-bento-btn,
     [data-theme="dark"] #shop-by-mood .mood-explore-btn,
     html[data-theme="dark"] #shop-by-mood .mood-bento-btn,
     html[data-theme="dark"] #shop-by-mood .mood-explore-btn {
-      background: #D31238 !important;
-      border: 1.5px solid #FFFFFF !important;
+      background: rgba(30, 20, 22, 0.88) !important;
+      border: 1px solid rgba(255, 255, 255, 0.25) !important;
       color: #FFFFFF !important;
-      box-shadow: 0 3px 12px rgba(211, 18, 56, 0.45) !important;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    [data-theme="dark"] #shop-by-mood .mood-bento-btn:hover,
+    [data-theme="dark"] #shop-by-mood .mood-explore-btn:hover,
+    html[data-theme="dark"] #shop-by-mood .mood-bento-btn:hover,
+    html[data-theme="dark"] #shop-by-mood .mood-explore-btn:hover {
+      background: #D31238 !important;
+      border-color: #D31238 !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 4px 14px rgba(211, 18, 56, 0.45) !important;
     }
 
     [data-theme="dark"] #shop-by-mood .mood-bento-btn svg,
     [data-theme="dark"] #shop-by-mood .mood-explore-btn svg,
-    [data-theme="dark"] #shop-by-mood .mood-bento-btn svg *,
-    [data-theme="dark"] #shop-by-mood .mood-explore-btn svg *,
     html[data-theme="dark"] #shop-by-mood .mood-bento-btn svg,
-    html[data-theme="dark"] #shop-by-mood .mood-explore-btn svg,
-    html[data-theme="dark"] #shop-by-mood .mood-bento-btn svg *,
-    html[data-theme="dark"] #shop-by-mood .mood-explore-btn svg * {
+    html[data-theme="dark"] #shop-by-mood .mood-explore-btn svg {
       stroke: #FFFFFF !important;
       color: #FFFFFF !important;
     }
@@ -15577,7 +15659,6 @@
     html[data-theme="dark"] #shop-by-mood .mood-bento-btn span,
     html[data-theme="dark"] #shop-by-mood .mood-explore-btn span {
       color: #FFFFFF !important;
-      font-weight: 700 !important;
     }
 
     /* ===== NEW ARRIVALS DROPDOWN IN DARK MODE: WHITE FILLED WITH DARK PINK LABEL ===== */
@@ -16159,6 +16240,13 @@
     html[data-theme="dark"] #site-footer .footer-col-header {
       color: #FF3366 !important;
     }
+
+    /*
+      New arrivals — final layout pass
+      Keep the editorial ribbons as background details, never as content that
+      crosses the product cards. The previous coverflow rules were competing
+      at mobile sizes, which caused the card, arrows and ribbons to collide.
+    */
   </style>
 </head>
 
@@ -16564,14 +16652,17 @@
       <div class="lookbook-header-row">
         <div class="lookbook-header-left">
           <p class="section-label reveal" style="margin-bottom:2px;">Lookbook Edit &#8212; SS24</p>
-          <h2 class="lookbook-title reveal reveal-delay-1">New <em
-              style="font-style:italic; color:var(--accent-dark);">ARRIVALS</em></h2>
+          <h2 class="lookbook-title reveal reveal-delay-1"><span
+              class="desktop-lookbook-title"><span>New</span><br><span class="lookbook-title-subline"><em
+                  style="font-style:italic; color:var(--accent-dark);">ARRIVALS</em></span></span><span
+              class="mobile-lookbook-title">New <em
+                style="font-style:italic; color:var(--accent-dark);">ARRIVALS</em></span></h2>
           <div class="lookbook-season reveal reveal-delay-2">CURATED STUDIO &amp; RUNWAY DROPS</div>
         </div>
 
-        <!-- Filter Tabs in Header Row (Desktop Only) -->
+        <!-- Filter Tabs in Header Row (Hidden on both Desktop & Mobile for JS compatibility) -->
         <div class="filter-tabs desktop-only-flex" id="newArrivalsTabs" role="tablist" aria-label="Filter new arrivals"
-          style="margin-bottom:0;">
+          style="display:none !important; visibility:hidden !important; pointer-events:none !important; margin-bottom:0;">
           <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All</button>
           <button class="filter-tab" data-filter="earrings" role="tab" aria-selected="false">Earrings</button>
           <button class="filter-tab" data-filter="necklaces" role="tab" aria-selected="false">Necklaces</button>
@@ -18592,6 +18683,11 @@
 
     function setLookbookIndex(idx) {
       currentLookbookIndex = idx;
+      const section = document.getElementById('new-arrivals');
+      if (section && window.innerWidth <= 860) {
+        const offset = ((idx % 5) - 2) * 8;
+        section.style.setProperty('--bg-grad-x', `${50 + offset}%`);
+      }
       updateLookbookCarousel();
     }
 
@@ -18643,7 +18739,6 @@
         </button>
         <div class="lookbook-caption">
           <div class="lookbook-caption-left">
-            <div class="lookbook-item-num">${lookNum}</div>
             <h3 class="lookbook-item-title">${p.name}</h3>
             <div class="lookbook-item-price">
               &#8377;${p.price.toLocaleString('en-IN')}
@@ -18681,13 +18776,34 @@
       if (nextBtn) nextBtn.onclick = () => setLookbookIndex(currentLookbookIndex + 1);
 
       const stage = document.getElementById('newArrivalsStage');
+      const lookbookSec = document.getElementById('new-arrivals');
       if (stage) {
         let touchStartX = 0;
-        stage.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+        stage.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        stage.addEventListener('touchmove', (e) => {
+          if (lookbookSec && window.innerWidth <= 860 && e.touches && e.touches[0]) {
+            const rect = lookbookSec.getBoundingClientRect();
+            const xPct = Math.max(15, Math.min(85, ((e.touches[0].clientX - rect.left) / rect.width) * 100));
+            const yPct = Math.max(20, Math.min(80, ((e.touches[0].clientY - rect.top) / rect.height) * 100));
+            lookbookSec.style.setProperty('--bg-grad-x', `${xPct.toFixed(1)}%`);
+            lookbookSec.style.setProperty('--bg-grad-y', `${yPct.toFixed(1)}%`);
+          }
+        }, { passive: true });
+
         stage.addEventListener('touchend', (e) => {
           const touchEndX = e.changedTouches[0].screenX;
           if (touchEndX - touchStartX > 40) setLookbookIndex(currentLookbookIndex - 1);
           if (touchStartX - touchEndX > 40) setLookbookIndex(currentLookbookIndex + 1);
+          if (lookbookSec && window.innerWidth <= 860) {
+            setTimeout(() => {
+              const offset = ((currentLookbookIndex % 5) - 2) * 8;
+              lookbookSec.style.setProperty('--bg-grad-x', `${50 + offset}%`);
+              lookbookSec.style.setProperty('--bg-grad-y', '46%');
+            }, 100);
+          }
         }, { passive: true });
       }
 

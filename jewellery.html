@@ -106,11 +106,22 @@
     footer.footer { min-height: 100svh; height: 100svh; max-height: 100svh; box-sizing: border-box; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden; padding-top: clamp(24px, 4vh, 48px); padding-bottom: clamp(16px, 3vh, 32px); }
   }
 
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    margin: 0;
+    padding: 0;
+  }
+
   @media (max-width: 860px) {
     html { scroll-snap-type: y proximity; }
   }
 
-  body { font-family: var(--font-sans); background: var(--bg); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out); }
+  body { margin: 0; padding: 0; font-family: var(--font-sans); background: var(--bg); color: var(--text-primary); line-height: 1.6; overflow-x: hidden; transition: background 0.3s var(--ease-out), color 0.3s var(--ease-out); }
 
   body.nav-open,
   body.modal-open { overflow: hidden; }
@@ -1179,11 +1190,12 @@
   .lookbook-section { min-height: 100svh; height: 100svh; max-height: 100svh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; padding-block: clamp(16px, 2.2vh, 28px); background: var(--bg-2); box-sizing: border-box; position: relative; }
 
   .lookbook-container { display: flex; flex-direction: column; height: 100%; justify-content: space-between; gap: clamp(8px, 1.4vh, 16px); }
-
   .lookbook-header-row { display: flex; align-items: flex-end; justify-content: space-between; gap: clamp(16px, 3vw, 40px); flex-shrink: 0; }
-
   .lookbook-title { font-family: var(--font-serif); font-size: clamp(26px, 3.4vw, 42px); font-weight: 400; letter-spacing: 0.04em; color: var(--text-primary); line-height: 1.1; margin-bottom: 2px; }
-
+  .desktop-lookbook-title { display: block; }
+  .mobile-lookbook-title { display: none; }
+  .lookbook-title-subline { display: inline-block; line-height: 1.05; }
+  .title-spacer { visibility: hidden; user-select: none; pointer-events: none; }
   .lookbook-season { font-size: 10px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--text-secondary); }
 
   /* 12-Column Editorial Grid fitting 100svh */
@@ -2465,13 +2477,13 @@
 
     #shop-by-mood .mood-bento-info { width: 100%; flex: none; }
 
-    #shop-by-mood .mood-bento-title { font-size: clamp(25px, 1.85vw, 34px) !important; margin-bottom: 7px; }
+    #shop-by-mood .mood-bento-title { font-size: clamp(16px, 1.2vw, 21px) !important; margin-bottom: 2px !important; line-height: 1.2 !important; }
 
-    #shop-by-mood .mood-bento-sub { font-size: clamp(11px, 0.8vw, 14px) !important; line-height: 1.45; margin-bottom: 10px; }
+    #shop-by-mood .mood-bento-sub { font-size: clamp(8.5px, 0.65vw, 10.5px) !important; line-height: 1.3 !important; letter-spacing: 0.12em !important; margin-bottom: 8px !important; }
 
-    #shop-by-mood .mood-bento-desc { display: block; max-width: none; overflow: visible; -webkit-line-clamp: unset; line-clamp: unset; font-size: clamp(13px, 0.94vw, 16px) !important; line-height: 1.45; }
+    #shop-by-mood .mood-bento-desc { display: block; max-width: none; overflow: visible; -webkit-line-clamp: unset; line-clamp: unset; font-size: clamp(11px, 0.8vw, 13px) !important; line-height: 1.4; }
 
-    #shop-by-mood .mood-bento-btn { align-self: flex-start; padding: 10px 18px; }
+    #shop-by-mood .mood-bento-btn { align-self: flex-start; padding: 5px 13px !important; }
   }
 
   @media (max-width: 860px) {
@@ -3051,11 +3063,594 @@
   #new-arrivals .lookbook-header-left .section-label { display: none; }
 
   @media (min-width: 861px) {
-    #new-arrivals .lookbook-container { padding-top: clamp(8px, 1.15vh, 14px); }
+    #new-arrivals.lookbook-section {
+      min-height: 100svh !important;
+      height: 100svh !important;
+      max-height: 100svh !important;
+      padding-top: clamp(12px, 1.5vh, 18px) !important;
+      padding-bottom: 0 !important;
+      position: relative !important;
+      overflow: hidden !important;
+    }
 
-    #new-arrivals .lookbook-title { font-size: clamp(48px, 4.45vw, 74px); line-height: .95; letter-spacing: -.04em; }
+    #new-arrivals .lookbook-container {
+      width: min(100%, 1760px) !important;
+      height: 100% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: flex-start !important;
+      align-items: stretch !important;
+      padding: 0 clamp(28px, 3.2vw, 60px) !important;
+      gap: 0 !important;
+      position: relative !important;
+      z-index: 10 !important;
+    }
 
-    #new-arrivals .lookbook-season { font-size: 11px; font-weight: 700; letter-spacing: .22em; }
+    /* 1. Headings on Left */
+    #new-arrivals .lookbook-header-row {
+      flex: 0 0 auto !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      justify-content: flex-start !important;
+      text-align: left !important;
+      width: 100% !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      position: relative !important;
+      z-index: 20 !important;
+    }
+
+    #new-arrivals .lookbook-header-left {
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      text-align: left !important;
+      width: auto !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    #new-arrivals .lookbook-title {
+      font-family: var(--font-serif) !important;
+      font-size: clamp(44px, min(4vw, 5.8vh), 56px) !important;
+      line-height: 0.82 !important;
+      letter-spacing: -0.025em !important;
+      color: var(--text-primary, #111111) !important;
+      text-align: left !important;
+      margin: 0 0 3px 0 !important;
+    }
+
+    .desktop-lookbook-title {
+      display: block !important;
+      text-align: left !important;
+    }
+
+    .mobile-lookbook-title {
+      display: none !important;
+    }
+
+    .lookbook-title-subline {
+      display: inline-block !important;
+      line-height: 0.82 !important;
+      margin-left: clamp(10px, 0.8vw, 16px) !important;
+    }
+
+    .title-spacer {
+      display: none !important;
+      visibility: hidden !important;
+      width: 0 !important;
+      height: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+    }
+
+    #new-arrivals .lookbook-season {
+      font-family: var(--font-sans) !important;
+      font-size: clamp(12px, 1vw, 14.5px) !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.22em !important;
+      text-transform: uppercase !important;
+      color: var(--text-secondary, #7A6560) !important;
+      text-align: left !important;
+      margin-top: 2px !important;
+      line-height: 1.15 !important;
+    }
+
+    /* Remove product category nav buttons and dropdown on desktop */
+    #new-arrivals .filter-tabs,
+    #newArrivalsTabs,
+    #new-arrivals .new-arrivals-select-wrap,
+    #newArrivalsSelectWrap {
+      display: none !important;
+      visibility: hidden !important;
+    }
+
+    /* 2. Top Ribbon: Cleanly below the left heading and above the carousel */
+    #new-arrivals .ribbon-tape-1 {
+      top: clamp(118px, 14.8vh, 142px) !important;
+      bottom: auto !important;
+      transform: rotate(-1.2deg) !important;
+      padding: 7px 0 !important;
+      background: #752E3C !important;
+      border-top: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+      border-bottom: 1.5px solid rgba(255, 255, 255, 0.25) !important;
+      z-index: 1 !important;
+    }
+
+    /* 3. Carousels: Below the top ribbon */
+    #new-arrivals .carousel-3d-wrapper {
+      flex: 0 0 auto !important;
+      margin-top: clamp(80px, 10.5vh, 104px) !important;
+      margin-bottom: 0 !important;
+      position: relative !important;
+      z-index: 5 !important;
+    }
+
+    #new-arrivals .carousel-3d-stage {
+      height: clamp(310px, 39svh, 370px) !important;
+    }
+
+    #new-arrivals .lookbook-item {
+      width: clamp(230px, 19vw, 280px) !important;
+      height: clamp(300px, 37svh, 360px) !important;
+    }
+
+    /* 4. Nav Dots: Sits below the carousel, moved a bit below */
+    #new-arrivals .carousel-3d-dots {
+      position: relative !important;
+      margin-top: clamp(18px, 2.5vh, 28px) !important;
+      margin-bottom: clamp(16px, 2.2vh, 28px) !important;
+      z-index: 15 !important;
+    }
+
+    /* 5. Lower Ribbon: Cleanly at bottom edge below the nav dots */
+    #new-arrivals .ribbon-tape-2 {
+      top: auto !important;
+      bottom: clamp(4px, 0.8vh, 12px) !important;
+      transform: rotate(1.2deg) !important;
+      padding: 7px 0 !important;
+      background: #61222E !important;
+      border-top: 1.5px solid rgba(255, 255, 255, 0.2) !important;
+      border-bottom: 1.5px solid rgba(255, 255, 255, 0.2) !important;
+      z-index: 1 !important;
+    }
+  }
+
+  /* New Arrivals: Luxury 3D Coverflow Mobile Showcase - Same Size as Hero Section (100dvh/100svh Viewport Fit), Solid Alive Touch Gradient, No Collisions */
+  @media (max-width: 860px) {
+    #new-arrivals.lookbook-section {
+      min-height: 100vh !important;
+      min-height: 100dvh !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      max-height: 100vh !important;
+      max-height: 100dvh !important;
+      overflow: hidden !important;
+      box-sizing: border-box !important;
+      padding-top: clamp(14px, 2.2vh, 22px) !important;
+      padding-bottom: clamp(12px, 1.8vh, 18px) !important;
+      padding-inline: clamp(10px, 3vw, 16px) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      position: relative !important;
+      --bg-grad-x: 50%;
+      --bg-grad-y: 45%;
+      background: radial-gradient(circle 420px at var(--bg-grad-x, 50%) var(--bg-grad-y, 45%), #FFF9F8 0%, #FDEFEA 30%, #F9D8DE 65%, #ECC5CC 100%) !important;
+      transition: background 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    [data-theme="dark"] #new-arrivals.lookbook-section,
+    html[data-theme="dark"] #new-arrivals.lookbook-section {
+      background: radial-gradient(circle 420px at var(--bg-grad-x, 50%) var(--bg-grad-y, 45%), #32151B 0%, #220C12 32%, #170609 68%, #0E0305 100%) !important;
+    }
+
+    #new-arrivals .lookbook-container,
+    section#new-arrivals .lookbook-container {
+      height: 100% !important;
+      max-height: 100% !important;
+      min-height: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: center !important;
+      gap: 0 !important;
+      overflow: hidden !important;
+      padding: 0 !important;
+      margin: 0 auto !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box !important;
+      flex: 1 1 auto !important;
+      position: relative !important;
+      z-index: 5 !important;
+    }
+
+    /* 1. Header Row - Fully Uncropped with Perfect Headroom */
+    #new-arrivals .lookbook-header-row {
+      flex: 0 0 auto !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      text-align: center !important;
+      width: 100% !important;
+      gap: 0 !important;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+      padding: 0 !important;
+      position: relative !important;
+      z-index: 25 !important;
+    }
+
+    #new-arrivals .lookbook-header-left {
+      width: 100% !important;
+      text-align: center !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      margin-top: 0 !important;
+      margin-bottom: 0 !important;
+    }
+
+    #new-arrivals .section-label {
+      display: none !important;
+    }
+
+    #new-arrivals .lookbook-title {
+      font-family: var(--font-serif) !important;
+      font-size: clamp(26px, 7.2vw, 34px) !important;
+      line-height: 1.15 !important;
+      letter-spacing: -0.02em !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      color: #2A1613 !important;
+      text-align: center !important;
+    }
+
+    .desktop-lookbook-title {
+      display: none !important;
+    }
+
+    .mobile-lookbook-title {
+      display: inline-block !important;
+    }
+
+    [data-theme="dark"] #new-arrivals .lookbook-title {
+      color: #FFFFFF !important;
+    }
+
+    #new-arrivals .lookbook-title em {
+      font-style: italic !important;
+      color: #D31238 !important;
+    }
+
+    #new-arrivals .lookbook-season {
+      font-family: var(--font-sans) !important;
+      font-size: clamp(9px, 2.3vw, 10.5px) !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.18em !important;
+      text-transform: uppercase !important;
+      color: #7A6560 !important;
+      margin-top: 4px !important;
+      text-align: center !important;
+    }
+
+    [data-theme="dark"] #new-arrivals .lookbook-season {
+      color: #C0AAA5 !important;
+    }
+
+    /* 2. REMOVE CATEGORIES DROPDOWN & TABS COMPLETELY ON MOBILE */
+    #new-arrivals .filter-tabs,
+    #newArrivalsTabs,
+    .lookbook-header-row .filter-tabs,
+    #new-arrivals .new-arrivals-select-wrap,
+    #newArrivalsSelectWrap {
+      display: none !important;
+      visibility: hidden !important;
+      height: 0 !important;
+      max-height: 0 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      overflow: hidden !important;
+      pointer-events: none !important;
+    }
+
+    /* 3D Carousel Stage & Wrapper */
+    #new-arrivals .carousel-3d-wrapper {
+      flex: 0 0 auto !important;
+      min-height: 0 !important;
+      height: clamp(320px, 47vh, 395px) !important;
+      width: 100% !important;
+      margin-top: clamp(8px, 1.4vh, 14px) !important;
+      margin-bottom: 0 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      position: relative !important;
+      overflow: visible !important;
+      z-index: 5 !important;
+    }
+
+    #new-arrivals .carousel-3d-stage {
+      height: 100% !important;
+      min-height: 0 !important;
+      max-height: 100% !important;
+      width: 100% !important;
+      perspective: 1100px !important;
+      perspective-origin: 50% 50% !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      position: relative !important;
+      overflow: visible !important;
+      touch-action: pan-y !important;
+    }
+
+    #new-arrivals .lookbook-grid.carousel-3d-track {
+      width: 100% !important;
+      height: 100% !important;
+      position: relative !important;
+      transform-style: preserve-3d !important;
+      display: block !important;
+      overflow: visible !important;
+      padding: 0 !important;
+      margin: 0 !important;
+    }
+
+    /* Proportional Mobile 3D Card */
+    #new-arrivals .lookbook-item {
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      width: clamp(240px, 68vw, 285px) !important;
+      height: 100% !important;
+      min-height: 0 !important;
+      max-height: 100% !important;
+      border-radius: 18px !important;
+      overflow: hidden !important;
+      border: 1px solid rgba(255, 255, 255, 0.35) !important;
+      box-shadow: 0 16px 42px rgba(0, 0, 0, 0.32) !important;
+      background: #141110 !important;
+      margin: 0 !important;
+      will-change: transform, opacity !important;
+    }
+
+    #new-arrivals .lookbook-item.is-center {
+      box-shadow: 0 24px 54px rgba(0, 0, 0, 0.45), 0 0 0 2px rgba(211, 18, 56, 0.5) !important;
+    }
+
+    #new-arrivals .lookbook-media {
+      position: absolute !important;
+      inset: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      overflow: hidden !important;
+    }
+
+    #new-arrivals .lookbook-image {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+      object-position: center !important;
+    }
+
+    /* Minimalist Floating Card Elements */
+    #new-arrivals .lookbook-tag {
+      position: absolute !important;
+      top: 10px !important;
+      right: 10px !important;
+      padding: 3px 8px !important;
+      font-size: 8.5px !important;
+      font-weight: 700 !important;
+      letter-spacing: 0.1em !important;
+      border-radius: 999px !important;
+      background: rgba(14, 11, 8, 0.8) !important;
+      backdrop-filter: blur(6px) !important;
+      -webkit-backdrop-filter: blur(6px) !important;
+      border: 1px solid rgba(255, 255, 255, 0.25) !important;
+      color: #FFFFFF !important;
+      z-index: 4 !important;
+    }
+
+    #new-arrivals .lookbook-wishlist {
+      position: absolute !important;
+      top: 10px !important;
+      left: 10px !important;
+      width: 30px !important;
+      height: 30px !important;
+      border-radius: 50% !important;
+      background: rgba(255, 255, 255, 0.88) !important;
+      backdrop-filter: blur(6px) !important;
+      -webkit-backdrop-filter: blur(6px) !important;
+      border: 1px solid rgba(0, 0, 0, 0.1) !important;
+      color: #111111 !important;
+      z-index: 4 !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+    }
+
+    #new-arrivals .lookbook-share-btn {
+      display: none !important;
+    }
+
+    /* Minimalist Card Caption */
+    #new-arrivals .lookbook-caption {
+      position: absolute !important;
+      bottom: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      padding: 14px 12px 12px !important;
+      background: linear-gradient(to top, rgba(14, 11, 8, 0.96) 0%, rgba(14, 11, 8, 0.6) 70%, transparent 100%) !important;
+      display: flex !important;
+      align-items: flex-end !important;
+      justify-content: space-between !important;
+      gap: 6px !important;
+      z-index: 3 !important;
+    }
+
+    #new-arrivals .lookbook-caption-left {
+      min-width: 0 !important;
+      flex: 1 1 auto !important;
+    }
+
+    #new-arrivals .lookbook-item-num {
+      display: none !important;
+    }
+
+    #new-arrivals .lookbook-item-title {
+      font-family: var(--font-serif) !important;
+      font-size: clamp(12.5px, 3.5vw, 15px) !important;
+      font-weight: 600 !important;
+      color: #FFFFFF !important;
+      line-height: 1.22 !important;
+      margin: 0 0 2px 0 !important;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85) !important;
+      white-space: normal !important;
+      word-break: normal !important;
+      overflow: visible !important;
+      text-overflow: clip !important;
+    }
+
+    #new-arrivals .lookbook-item-price {
+      font-size: 14px !important;
+      font-weight: 800 !important;
+      color: #FFFFFF !important;
+      margin-top: 2px !important;
+    }
+
+    #new-arrivals .lookbook-item-mrp {
+      font-size: 10.5px !important;
+      color: rgba(255, 255, 255, 0.6) !important;
+      text-decoration: line-through !important;
+      margin-left: 5px !important;
+    }
+
+    #new-arrivals .lookbook-quick-btn {
+      display: inline-flex !important;
+      align-items: center !important;
+      gap: 4px !important;
+      padding: 5px 12px !important;
+      font-size: 9px !important;
+      font-weight: 800 !important;
+      letter-spacing: 0.08em !important;
+      border-radius: 999px !important;
+      background: #D31238 !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 4px 12px rgba(211, 18, 56, 0.4) !important;
+      flex-shrink: 0 !important;
+    }
+
+    /* Minimal Floating Nav Buttons */
+    #new-arrivals .carousel-3d-btn {
+      width: 36px !important;
+      height: 36px !important;
+      border-radius: 50% !important;
+      background: rgba(255, 255, 255, 0.88) !important;
+      backdrop-filter: blur(8px) !important;
+      -webkit-backdrop-filter: blur(8px) !important;
+      border: 1px solid rgba(0, 0, 0, 0.15) !important;
+      color: #111111 !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15) !important;
+      z-index: 25 !important;
+    }
+
+    #new-arrivals .carousel-3d-btn svg {
+      width: 15px !important;
+      height: 15px !important;
+    }
+
+    #new-arrivals .carousel-3d-btn.prev-btn {
+      left: 2px !important;
+    }
+
+    #new-arrivals .carousel-3d-btn.next-btn {
+      right: 2px !important;
+    }
+
+    /* Pagination Dots - Positioned JUST BELOW the carousel */
+    #new-arrivals .carousel-3d-dots {
+      position: relative !important;
+      left: auto !important;
+      transform: none !important;
+      top: auto !important;
+      bottom: auto !important;
+      flex: 0 0 auto !important;
+      margin-top: clamp(8px, 1.4vh, 14px) !important;
+      margin-bottom: 0 !important;
+      gap: 8px !important;
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      z-index: 25 !important;
+    }
+
+    #new-arrivals .carousel-3d-dot {
+      width: 6px !important;
+      height: 6px !important;
+      border-radius: 50% !important;
+      background: rgba(0, 0, 0, 0.25) !important;
+      transition: width 0.3s ease, background 0.3s ease !important;
+    }
+
+    [data-theme="dark"] #new-arrivals .carousel-3d-dot {
+      background: rgba(255, 255, 255, 0.28) !important;
+    }
+
+    #new-arrivals .carousel-3d-dot.active {
+      width: 24px !important;
+      border-radius: 999px !important;
+      background: #D31238 !important;
+      box-shadow: 0 2px 8px rgba(211, 18, 56, 0.5) !important;
+    }
+
+    /* 3. RIBBONS: DIAGONALLY FRAMING SECTION ACCORDINGLY */
+    /* Ribbon 1: Floating across the upper background behind header */
+    #new-arrivals .ribbon-tape-1 {
+      top: clamp(75px, 11vh, 96px) !important;
+      bottom: auto !important;
+      transform: rotate(-3deg) !important;
+      padding: 5px 0 !important;
+      background: #752E3C !important;
+      font-size: 8.5px !important;
+      letter-spacing: 0.14em !important;
+      z-index: 1 !important;
+      opacity: 0.85 !important;
+      pointer-events: none !important;
+    }
+
+    /* Ribbon 2: Positioned at the bottom edge of the section */
+    #new-arrivals .ribbon-tape-2 {
+      top: auto !important;
+      bottom: clamp(26px, 4vh, 38px) !important;
+      transform: rotate(2.2deg) !important;
+      padding: 5px 0 !important;
+      background: #61222E !important;
+      font-size: 8.5px !important;
+      letter-spacing: 0.14em !important;
+      z-index: 1 !important;
+      opacity: 0.85 !important;
+      pointer-events: none !important;
+    }
+
+    #new-arrivals .ribbon-text {
+      font-size: 9.5px !important;
+      gap: 14px !important;
+      padding-right: 14px !important;
+    }
+
+    /* Instant Popup: NO enter animation on mobile */
+    #new-arrivals .reveal,
+    #new-arrivals .lookbook-header-left *,
+    #new-arrivals .lookbook-title,
+    #new-arrivals .lookbook-season {
+      opacity: 1 !important;
+      transform: none !important;
+      animation: none !important;
+      transition: none !important;
+    }
   }
 
   /* OCCASIONS EDITORIAL LUXURY REFINEMENT (RANGE ROVER ROSE GOLD & CURSIVE STATEMENT) */
@@ -3296,7 +3891,7 @@
 
     .carousel-3d-btn.next-btn { right: 0px; }
 
-    #new-arrivals .lookbook-item { width: clamp(230px, 70vw, 280px) !important; height: clamp(330px, 46svh, 380px) !important; }
+    #new-arrivals .lookbook-item { width: clamp(260px, 74vw, 305px) !important; height: 100% !important; min-height: 335px !important; }
   }
 
   /* LIVELY & VIBRANT NEW ARRIVALS: DARK ROSE GOLD RIBBONS & FAST CONTINUOUS MARQUEE */
@@ -3551,6 +4146,8 @@
 
   /* ===== DYNAMIC FLUID RESPONSIVENESS (PREVENTS ANY CUTTING WHEN BROWSER RESIZES) ===== */
   html, body {
+    margin: 0 !important;
+    padding: 0 !important;
     max-width: 100% !important;
     overflow-x: hidden !important;
   }
@@ -7458,20 +8055,22 @@
       <div class="lookbook-header-row">
         <div class="lookbook-header-left">
           <p class="section-label reveal" style="margin-bottom:2px;">Lookbook Edit &#8212; SS24</p>
-          <h2 class="lookbook-title reveal reveal-delay-1">New <em
-              style="font-style:italic; color:var(--accent-dark);">ARRIVALS</em></h2>
+          <h2 class="lookbook-title reveal reveal-delay-1"><span class="desktop-lookbook-title"><span>New</span><br><span class="lookbook-title-subline"><em
+              style="font-style:italic; color:var(--accent-dark);">ARRIVALS</em></span></span><span class="mobile-lookbook-title">New <em style="font-style:italic; color:var(--accent-dark);">ARRIVALS</em></span></h2>
           <div class="lookbook-season reveal reveal-delay-2">CURATED STUDIO &amp; RUNWAY DROPS</div>
         </div>
 
-        <!-- Filter Tabs in Header Row -->
-        <div class="filter-tabs" id="newArrivalsTabs" role="tablist" aria-label="Filter new arrivals"
-          style="margin-bottom:0;">
+        <!-- Filter Tabs in Header Row (Hidden on both Desktop & Mobile for JS compatibility) -->
+        <div class="filter-tabs desktop-only-flex" id="newArrivalsTabs" role="tablist" aria-label="Filter new arrivals"
+          style="display:none !important; visibility:hidden !important; pointer-events:none !important; margin-bottom:0;">
           <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">All</button>
           <button class="filter-tab" data-filter="earrings" role="tab" aria-selected="false">Earrings</button>
           <button class="filter-tab" data-filter="necklaces" role="tab" aria-selected="false">Necklaces</button>
           <button class="filter-tab" data-filter="rings" role="tab" aria-selected="false">Rings</button>
           <button class="filter-tab" data-filter="bracelets" role="tab" aria-selected="false">Bracelets</button>
         </div>
+
+
       </div>
 
       <!-- 3D Lookbook Carousel Stage -->
@@ -9390,6 +9989,11 @@ try { wishlist = JSON.parse(localStorage.getItem('dasha_wishlist') || '[]'); } c
 
     function setLookbookIndex(idx) {
       currentLookbookIndex = idx;
+      const section = document.getElementById('new-arrivals');
+      if (section && window.innerWidth <= 860) {
+        const offset = ((idx % 5) - 2) * 8;
+        section.style.setProperty('--bg-grad-x', `${50 + offset}%`);
+      }
       updateLookbookCarousel();
     }
 
@@ -9454,7 +10058,6 @@ try { wishlist = JSON.parse(localStorage.getItem('dasha_wishlist') || '[]'); } c
         </button>
         <div class="lookbook-caption">
           <div class="lookbook-caption-left">
-            <div class="lookbook-item-num">${lookNum}</div>
             <h3 class="lookbook-item-title">${p.name}</h3>
             <div class="lookbook-item-price">
               &#8377;${p.price.toLocaleString('en-IN')}
@@ -9492,13 +10095,34 @@ try { wishlist = JSON.parse(localStorage.getItem('dasha_wishlist') || '[]'); } c
       if (nextBtn) nextBtn.onclick = () => setLookbookIndex(currentLookbookIndex + 1);
 
       const stage = document.getElementById('newArrivalsStage');
+      const lookbookSec = document.getElementById('new-arrivals');
       if (stage) {
         let touchStartX = 0;
-        stage.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; }, { passive: true });
+        stage.addEventListener('touchstart', (e) => {
+          touchStartX = e.changedTouches[0].screenX;
+        }, { passive: true });
+
+        stage.addEventListener('touchmove', (e) => {
+          if (lookbookSec && window.innerWidth <= 860 && e.touches && e.touches[0]) {
+            const rect = lookbookSec.getBoundingClientRect();
+            const xPct = Math.max(15, Math.min(85, ((e.touches[0].clientX - rect.left) / rect.width) * 100));
+            const yPct = Math.max(20, Math.min(80, ((e.touches[0].clientY - rect.top) / rect.height) * 100));
+            lookbookSec.style.setProperty('--bg-grad-x', `${xPct.toFixed(1)}%`);
+            lookbookSec.style.setProperty('--bg-grad-y', `${yPct.toFixed(1)}%`);
+          }
+        }, { passive: true });
+
         stage.addEventListener('touchend', (e) => {
           const touchEndX = e.changedTouches[0].screenX;
           if (touchEndX - touchStartX > 40) setLookbookIndex(currentLookbookIndex - 1);
           if (touchStartX - touchEndX > 40) setLookbookIndex(currentLookbookIndex + 1);
+          if (lookbookSec && window.innerWidth <= 860) {
+            setTimeout(() => {
+              const offset = ((currentLookbookIndex % 5) - 2) * 8;
+              lookbookSec.style.setProperty('--bg-grad-x', `${50 + offset}%`);
+              lookbookSec.style.setProperty('--bg-grad-y', '46%');
+            }, 100);
+          }
         }, { passive: true });
       }
 
