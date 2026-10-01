@@ -8013,7 +8013,7 @@
       /* Display Big Grid: fills available top space down to the 3x4 grid with standard gap */
       #browse-types .piece-spotlight-card {
         flex: 1 1 0 !important;
-        min-height: 0 !important;
+        min-height: clamp(140px, 20vh, 180px) !important;
         max-height: none !important;
         height: auto !important;
         width: min(98%, calc((100svh - 235px) * 0.735), 323px) !important;
@@ -8054,11 +8054,12 @@
       #browse-types .spotlight-bottom-info {
         position: relative !important;
         z-index: 3 !important;
-        padding: clamp(6px, 1vh, 10px) 10px !important;
-        gap: 3px !important;
+        padding: 6px 10px clamp(12px, 1.8vh, 16px) 10px !important;
+        gap: clamp(3px, 0.5vh, 4px) !important;
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
+        justify-content: flex-end !important;
         text-align: center !important;
         width: 100% !important;
         box-sizing: border-box !important;
@@ -8083,13 +8084,17 @@
         align-items: center !important;
         justify-content: center !important;
         gap: 5px !important;
-        padding: 5px 12px !important;
+        padding: 5px 14px !important;
         font-size: 8.5px !important;
         font-weight: 700 !important;
         border-radius: 999px !important;
         text-transform: uppercase !important;
         letter-spacing: 0.05em !important;
         margin-top: 2px !important;
+        margin-bottom: 2px !important;
+        line-height: 1.2 !important;
+        box-sizing: border-box !important;
+        flex-shrink: 0 !important;
         background: #8A1C3C !important;
         color: #FFFFFF !important;
         border: 1px solid rgba(255, 255, 255, 0.4) !important;
@@ -10361,14 +10366,14 @@
         transform: none !important;
       }
 
-      /* Subtle gradient scrim constrained strictly to the bottom 25-28% of the card */
+      /* Protective gradient mask: ensures labels & buttons are clearly legible across all image backgrounds */
       .occasion-panel .occ-scrim,
       .occasion-panel.active .occ-scrim,
       .occasion-panel:not(.active) .occ-scrim {
         display: block !important;
         position: absolute !important;
         inset: 0 !important;
-        background: linear-gradient(180deg, transparent 0%, transparent 72%, rgba(10, 8, 8, 0.72) 85%, rgba(10, 8, 8, 0.95) 100%) !important;
+        background: linear-gradient(180deg, transparent 0%, transparent 32%, rgba(10, 8, 8, 0.35) 52%, rgba(10, 8, 8, 0.78) 74%, rgba(10, 8, 8, 0.95) 100%) !important;
         pointer-events: none !important;
         z-index: 2 !important;
       }
@@ -10386,7 +10391,7 @@
         display: none !important;
       }
 
-      /* Display text and sleek button strictly within the bottom 25% of the card */
+      /* Display label and sleek button close together in bottom middle of images */
       .occasion-panel .occ-expanded-content,
       .occasion-panel.active .occ-expanded-content,
       .occasion-panel:not(.active) .occ-expanded-content {
@@ -10397,13 +10402,13 @@
         bottom: 0 !important;
         top: auto !important;
         width: 100% !important;
-        height: 25% !important;
-        max-height: 25% !important;
+        height: auto !important;
+        max-height: 48% !important;
         min-height: 0 !important;
         flex-direction: column !important;
         justify-content: flex-end !important;
         align-items: center !important;
-        padding: 0 4px clamp(4px, 0.8vh, 6px) !important;
+        padding: 0 4px clamp(8px, 1.3vh, 12px) !important;
         box-sizing: border-box !important;
         z-index: 3 !important;
         opacity: 1 !important;
@@ -10420,9 +10425,10 @@
         display: flex !important;
         flex-direction: column !important;
         align-items: center !important;
+        justify-content: flex-end !important;
         text-align: center !important;
         width: 100% !important;
-        gap: 2px !important;
+        gap: 3px !important;
         margin: 0 auto !important;
         padding: 0 !important;
         background: none !important;
@@ -10432,17 +10438,18 @@
       .occasion-panel .occ-title,
       .occasion-panel.active .occ-title {
         font-family: var(--font-serif) !important;
-        font-size: clamp(9px, 2.2vw, 11px) !important;
+        font-size: clamp(10px, 2.6vw, 12px) !important;
         font-weight: 700 !important;
         color: #FFFFFF !important;
-        line-height: 1.1 !important;
-        margin: 0 0 2px 0 !important;
+        line-height: 1.15 !important;
+        margin: 0 !important;
+        padding: 0 !important;
         text-align: center !important;
-        text-shadow: 0 1px 4px rgba(0, 0, 0, 0.9) !important;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.95), 0 1px 3px rgba(0, 0, 0, 1) !important;
         white-space: nowrap !important;
         overflow: hidden !important;
         text-overflow: ellipsis !important;
-        max-width: 96% !important;
+        max-width: 95% !important;
       }
 
       .occasion-panel .occ-desc,
@@ -10452,7 +10459,7 @@
         display: none !important;
       }
 
-      /* Sleek & minimal explore button fitting perfectly within bottom 25% */
+      /* Sleek & minimal explore button fitting close to label in bottom middle */
       .occasion-panel .occ-cta-btn,
       .occasion-panel.active .occ-cta-btn,
       [data-theme="dark"] .occasion-panel .occ-cta-btn,
@@ -10461,9 +10468,9 @@
         align-items: center !important;
         justify-content: center !important;
         gap: 3px !important;
-        padding: 2.5px 8px !important;
-        height: 18px !important;
-        min-height: 0 !important;
+        padding: 3px 10px !important;
+        height: auto !important;
+        min-height: 19px !important;
         background: #D31238 !important;
         color: #FFFFFF !important;
         font-size: clamp(7.5px, 1.8vw, 8.5px) !important;
@@ -10475,6 +10482,9 @@
         border: 1px solid rgba(255, 255, 255, 0.4) !important;
         box-shadow: 0 2px 8px rgba(211, 18, 56, 0.35) !important;
         margin: 0 auto !important;
+        line-height: 1.2 !important;
+        box-sizing: border-box !important;
+        flex-shrink: 0 !important;
         cursor: pointer !important;
         transition: transform 0.2s, background 0.2s !important;
       }
@@ -19347,7 +19357,7 @@
         pieceReveal
           .from('#browse-types .piece-atelier-title', { y: 36, opacity: 0, skewY: 1.5, duration: 1.35 })
           .from(pieceSpotlight, { y: 44, opacity: 0, scale: 0.95, duration: 1.45 }, '-=0.75')
-          .from('#browse-types .spotlight-bottom-info > *', { y: 16, opacity: 0, stagger: 0.14, duration: 0.95 }, '-=0.6')
+          .from('#browse-types .spotlight-bottom-info > *', { y: 16, opacity: 0, stagger: 0.14, duration: 0.95, clearProps: 'transform' }, '-=0.6')
           .from(pieceTiles, { y: 28, opacity: 0, stagger: 0.12, duration: 1.15, ease: 'power2.out' }, '-=0.8');
 
         gsap.fromTo('#browse-types .spotlight-bg',
